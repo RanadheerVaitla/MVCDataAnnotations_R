@@ -1,0 +1,66 @@
+﻿@model MVCDataAnnotations.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddUser</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        span{color:red}
+    </style>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("SaveUser", "User"))
+        {            
+            <div>
+                @Html.LabelFor(U => U.Name, new { @class = "label-primary" })
+                @Html.EditorFor(U => U.Name, new { htmlAttributes = new { placeholder = "Enter Name" } })
+                @Html.ValidationMessageFor(U => U.Name)
+            </div>
+            <div>
+                @Html.LabelFor(U => U.Password)
+                @Html.EditorFor(U => U.Password, new { htmlAttributes = new { placeholder = "Enter Password" } })
+                @Html.ValidationMessageFor(U => U.Password)
+            </div>
+            <div>
+                @Html.LabelFor(U => U.ConfirmPassword)
+                @Html.EditorFor(U => U.ConfirmPassword)
+                @Html.ValidationMessageFor(U => U.ConfirmPassword)
+            </div>
+            <div>
+                @Html.LabelFor(U => U.DOB)
+                @Html.EditorFor(U => U.DOB)
+                @Html.ValidationMessageFor(U => U.DOB)
+            </div>
+            <div>
+                @Html.LabelFor(U => U.Phone)
+                @Html.EditorFor(U => U.Phone)
+                @Html.ValidationMessageFor(U => U.Phone)
+            </div>
+            <div>
+                @Html.LabelFor(U => U.Email)
+                @Html.EditorFor(U => U.Email)
+                @Html.ValidationMessageFor(U => U.Email)
+            </div>
+            <div>
+                @Html.LabelFor(U => U.Address)
+                @Html.EditorFor(U => U.Address)
+                @Html.ValidationMessageFor(U => U.Address)
+            </div>
+            <div>
+                <input type="submit" value="SUBMIT" id="btnSave" />
+                <input type="reset" value="RESET" id="btnReset" />
+            </div>
+        }
+    </div>
+</body>
+</html>
